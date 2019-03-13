@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <h1 id="title">todos</h1>
+        </div>
+        <todos class="col-md-10 offset-md-1 mt-2"></todos>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Todos from "./components/Todos.vue";
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    Todos
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
+}
+.wrapper {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+}
+#title {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-size: 5em;
+  font-weight: 400;
+  color: #e8d5d6;
 }
 </style>
