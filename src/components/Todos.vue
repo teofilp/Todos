@@ -63,6 +63,7 @@ i {
   background: white;
   padding: 0;
   box-shadow: 0px 5px 15px #bbb;
+  margin-bottom: 200px;
 }
 
 .input-wrapper {

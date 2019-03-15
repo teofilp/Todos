@@ -1,8 +1,8 @@
 <template>
   <div class="footer-wrapper" v-if="getTodosCount > 0">
     <div class="row">
-      <h6 class="col-md-3 col-sm-3 col-xs-3 mt-2">{{ getTodosCount }} items left</h6>
-      <ul class="col-md-6 col-sm-6 col-xs-6 mt-1">
+      <h6 class="col-md-4 col-sm-4 col-xs-4 mt-2">{{ getTodosCount }} items left</h6>
+      <ul class="col-md-6 col-sm-4 col-xs-4 mt-1">
         <li>
           <a
             href

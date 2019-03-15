@@ -10,6 +10,8 @@ export default new Vuex.Store({
   },
   mutations: {
     addTodo(state, todo) {
+      if (todo.text.trim().length < 5)
+        return alert('Todo has to have at least 5 characters');
       state.todos.push(todo);
     },
     markAsComplete(state, todo) {
@@ -47,14 +49,18 @@ export default new Vuex.Store({
   },
   actions: {
     saveTodos({ state }) {
-      localStorage.setItem("todos", JSON.stringify(state.todos));
+      if (state.todos.length === 0) {
+        if (confirm('Your list has no todos, are you sure you want to save it?'))
+          localStorage.setItem("todos", JSON.stringify(state.todos));
+      }
+      else
+        localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     loadTodos({ state }) {
       state.todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
     },
     deleteTodos({ state }) {
       state.todos = [];
-      localStorage.setItem('todos', JSON.stringify([]));
     }
   }
 })
