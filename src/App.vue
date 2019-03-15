@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
+    <app-menu></app-menu>
     <div class="wrapper">
       <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -13,20 +14,16 @@
 
 <script>
 import Todos from "./components/Todos.vue";
-
+import Menu from "./components/Menu.vue";
 export default {
   components: {
-    Todos
+    Todos,
+    appMenu: Menu
   }
 };
 </script>
 
 <style>
-#app {
-  width: 100%;
-  height: 100%;
-  background-color: #eeeeee;
-}
 .wrapper {
   position: absolute;
   left: 50%;

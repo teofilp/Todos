@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div v-for="(todo, index) in getTodos" :key="index" class="todo-item row">
+    <div v-for="(todo, index) in getTodosByType" :key="index" class="todo-item row">
       <div
         class="checkbox_button offset-md-2"
-        @click="todo.completed ? markAsIncomplete(index) : markAsComplete(index)"
+        @click="todo.completed ? markAsIncomplete(todo) : markAsComplete(todo)"
       >
         <i :class="{completed: todo.completed}" class="fas fa-check"></i>
       </div>
-      <h5 class="col-md-8 mt-3">{{ todo.text }}</h5>
-      <i class="fas fa-times col-md-2 delete" @click="deleteTodo(index)"></i>
+      <p class="col-md-8 mt-3">{{ todo.text }}</p>
+      <i class="fas fa-times col-md-2 delete" @click="deleteTodo(todo)"></i>
     </div>
     <todos-footer></todos-footer>
   </div>
@@ -17,19 +17,18 @@
 import { mapGetters } from "vuex";
 import todosFooter from "./TodosFooter.vue";
 export default {
-  props: ["todos"],
   computed: {
-    ...mapGetters(["getTodos"])
+    ...mapGetters(["getTodos", "getTodosByType"])
   },
   methods: {
-    markAsComplete(index) {
-      this.$store.commit("markAsComplete", index);
+    markAsComplete(todo) {
+      this.$store.commit("markAsComplete", todo);
     },
-    markAsIncomplete(index) {
-      this.$store.commit("markAsIncomplete", index);
+    markAsIncomplete(todo) {
+      this.$store.commit("markAsIncomplete", todo);
     },
-    deleteTodo(index) {
-      this.$store.commit("deleteTodo", index);
+    deleteTodo(todo) {
+      this.$store.commit("deleteTodo", todo);
     }
   },
   components: {
@@ -55,6 +54,9 @@ export default {
   margin: 12px 10px 12px 12px;
   border: 1px solid #e2e2e2;
   border-radius: 50%;
+}
+.todo-item p {
+  width: 70%;
 }
 .checkbox_button:hover {
   cursor: pointer;
@@ -82,7 +84,7 @@ export default {
   cursor: pointer;
 }
 
-.todo-item:hover .checkbox_button i {
+.checkbox_button:hover i {
   cursor: pointer;
   opacity: 0.5;
   color: #36c96c;

@@ -1,12 +1,15 @@
 <template>
   <div class="todos-wrapper">
     <div class="input-wrapper">
-      <i :class="{i_active : getTodos.length > 0}" class="fas fa-chevron-down col-md-2"></i>
+      <i
+        :class="{i_active : getTodos.length > 0}"
+        class="fas fa-chevron-down col-md-2 col-sm-2 col-xs-2"
+      ></i>
       <input
         type="text"
         @keyup.enter="submit"
         placeholder="What needs to be done?"
-        class="col-md-10"
+        class="col-md-10 col-sm-10 col-xs-10"
         v-model="todo.text"
       >
     </div>
