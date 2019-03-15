@@ -1,30 +1,13 @@
 # webpack
 
-## Project setup
+## To try application follow the steps
+# 1. Setup the app
 ```
-npm install
-```
+-> cd webpack
 
-### Compiles and hot-reloads for development
+-> npm install
 ```
-npm run serve
+# 2. Try the app
 ```
-
-### Compiles and minifies for production
+-> npm run dev
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-"# Todos" 
